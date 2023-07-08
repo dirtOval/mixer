@@ -1,18 +1,7 @@
 import React, {useState} from 'react';
-import Modal from 'react-modal';
+import SearchModal from './SearchModal.jsx';
 
 const SearchBar = ({setVideoId}) => {
-
-  const modalStyles = {
-    content: {
-      top: '50%',
-      left: '50%',
-      right: 'auto',
-      bottom: 'auto',
-      marginRight: '-50%',
-      transform: 'translate(-50%, -50%)',
-    },
-  };
   
   const [search, setSearch] = useState('');
   const [modalOpen, setModalOpen] = useState(false);
@@ -33,17 +22,11 @@ const SearchBar = ({setVideoId}) => {
 
   return (
     <>
-      <form onSubmit={openModal}>
+      <form className="search-form" onSubmit={openModal}>
         <input className="search-bar" onChange={onChange} />
       </form>
-      <Modal 
-       isOpen={modalOpen}
-       onRequestClose={closeModal}
-       style={modalStyles}
-       contentLabel={'Search'}>
-        <button onClick={closeModal}>close</button>
-        <h1>OH YEAH ITS SEARCHING TIME</h1>
-      </Modal>
+      <SearchModal modalOpen={modalOpen}
+                   closeModal={closeModal}/>
     </>
   )
 }

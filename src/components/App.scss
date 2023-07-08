@@ -34,8 +34,11 @@ html, body {
       justify-content: space-around;
       align-items: center;
       
-      .search-bar {
+      .search-form{
         width: 80%;
+        .search-bar {
+          width: 100%;
+        }
       }
     }
   }
