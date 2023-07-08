@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import YouTube from 'react-youtube';
 import SearchBar from './SearchBar.jsx';
 
 const Video = (props) => {
+
+  const [videoId, setVideoId] = useState('H96RoJKqbN4');
 
   const opts = {
     height: '270',
@@ -11,8 +13,8 @@ const Video = (props) => {
 
   return (
     <div className="video">
-      <SearchBar />
-      <YouTube videoId="H96RoJKqbN4" opts={opts} />
+      <SearchBar setVideoId={setVideoId} />
+      <YouTube videoId={videoId} opts={opts} />
     </div>
   );
 }
