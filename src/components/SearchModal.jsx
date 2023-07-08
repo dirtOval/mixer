@@ -22,9 +22,9 @@ const SearchModal = ({modalOpen, closeModal, searchResults}) => {
        style={modalStyles}
        contentLabel={'Search'}>
         <button onClick={closeModal}>close</button>
-        {searchResults.items.map(result => (
-          <SearchResult result={result} />
-        ))}
+        {searchResults.items.map((result, idx) => (
+          <SearchResult result={result} key={idx} />
+        ))})
       </Modal>
   )
 }

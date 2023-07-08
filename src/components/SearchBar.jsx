@@ -11,7 +11,7 @@ const SearchBar = ({setVideoId}) => {
           description: 'dick dick dick dick dick',
           thumbnails: {
             default: {
-              url: 'https://en.wikipedia.org/wiki/Cat#/media/File:Felis_catus-cat_on_snow.jpg'
+              url: 'https://i.ytimg.com/vi/YLtEc-kvOqA/default.jpg'
             }
           }
         }
@@ -29,8 +29,20 @@ const SearchBar = ({setVideoId}) => {
 
   const openModal = (e) => {
     e.preventDefault();
-    console.log(`Items in search: ${searchResults.items.length}`)
-    setModalOpen(true);
+    fetch('https://www.googleapis.com/youtube/v3/search?' +
+          new URLSearchParams({
+            key: process.env.REACT_APP_API_KEY,
+            part: 'id,snippet',
+            q: search,
+            maxResults: 5
+          }))
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        setSearchResults(data);
+        setModalOpen(true);
+      })
   };
 
   const closeModal = () => {
