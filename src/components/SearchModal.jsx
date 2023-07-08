@@ -1,7 +1,8 @@
 import React from 'react';
 import Modal from 'react-modal';
+import SearchResult from './SearchResult.jsx';
 
-const SearchModal = (props) => {
+const SearchModal = ({modalOpen, closeModal, searchResults}) => {
 
   const modalStyles = {
     content: {
@@ -16,12 +17,14 @@ const SearchModal = (props) => {
 
   return (
     <Modal 
-       isOpen={props.modalOpen}
-       onRequestClose={props.closeModal}
+       isOpen={modalOpen}
+       onRequestClose={closeModal}
        style={modalStyles}
        contentLabel={'Search'}>
-        <button onClick={props.closeModal}>close</button>
-        <h1>OH YEAH ITS SEARCHING TIME</h1>
+        <button onClick={closeModal}>close</button>
+        {searchResults.items.map(result => (
+          <SearchResult result={result} />
+        ))}
       </Modal>
   )
 }
