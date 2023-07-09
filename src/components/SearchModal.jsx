@@ -2,7 +2,10 @@ import React from 'react';
 import Modal from 'react-modal';
 import SearchResult from './SearchResult.jsx';
 
-const SearchModal = ({modalOpen, closeModal, searchResults}) => {
+const SearchModal = ({modalOpen,
+                      closeModal,
+                      searchResults,
+                      setVideoId}) => {
 
   const modalStyles = {
     content: {
@@ -23,7 +26,10 @@ const SearchModal = ({modalOpen, closeModal, searchResults}) => {
        contentLabel={'Search'}>
         <button onClick={closeModal}>close</button>
         {searchResults.items.map((result, idx) => (
-          <SearchResult result={result} key={idx} />
+          <SearchResult result={result}
+                        key={idx}
+                        setVideoId={setVideoId}
+                        closeModal={closeModal} />
         ))})
       </Modal>
   )

@@ -40,6 +40,7 @@ const SearchBar = ({setVideoId}) => {
         return response.json();
       })
       .then(data => {
+        setSearch('');
         setSearchResults(data);
         setModalOpen(true);
       })
@@ -52,11 +53,12 @@ const SearchBar = ({setVideoId}) => {
   return (
     <>
       <form className="search-form" onSubmit={openModal}>
-        <input className="search-bar" onChange={onChange} />
+        <input className="search-bar" onChange={onChange} value={search} />
       </form>
       <SearchModal modalOpen={modalOpen}
                    closeModal={closeModal}
-                   searchResults={searchResults}/>
+                   searchResults={searchResults}
+                   setVideoId={setVideoId}/>
     </>
   )
 }
