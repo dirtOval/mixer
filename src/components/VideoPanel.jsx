@@ -5,8 +5,8 @@ const VideoPanel = (props) => {
 
   return (
     <div className="video-panel">
-      <Video />
-      <Video />
+      <Video setSource={props.setLeftSource} />
+      <Video setSource={props.setRightSource} />
     </div>
   )
 }

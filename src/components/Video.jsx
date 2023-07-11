@@ -15,16 +15,17 @@ const Video = (props) => {
   
   const [videoId, setVideoId] = useState('H96RoJKqbN4');
   
-  const onReady = (e) => {
-    console.log('youtube is ready :)');
+  const onPlay = (e) => {
+    // console.log('youtube is ready :)');
+    // console.log(e.target);
   }
 
   return (
     <div className="video">
       <SearchBar setVideoId={setVideoId} />
-      <YouTube videoId={videoId}
+      {/* <YouTube videoId={videoId}
                opts={opts}
-               onReady={onReady} />
+               onPlay={onPlay} /> */}
     </div>
   );
 }

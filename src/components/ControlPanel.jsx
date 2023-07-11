@@ -7,7 +7,6 @@ const ControlPanel = (props) => {
   const [rightVolume, setRightVolume] = useState(100);
 
   // useEffect(() => {
-  //   let context = new AudioContext();
   //   let streams = document.getElementsByClassName('video-stream');
   //   console.log(streams);
   //   // let leftSource = context.createMediaElementSource(streams[0]);
