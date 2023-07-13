@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import YouTube from 'react-youtube';
+// import YouTube from 'react-youtube';
 import SearchBar from './SearchBar.jsx';
 
 const opts = {
@@ -13,16 +13,20 @@ const opts = {
 
 const Video = (props) => {
   
-  const [videoId, setVideoId] = useState('H96RoJKqbN4');
+  // const [videoId, setVideoId] = useState('H96RoJKqbN4');
   
   const onPlay = (e) => {
     // console.log('youtube is ready :)');
     // console.log(e.target);
   }
 
+  const getAudio = (url) => {
+
+  }
+
   return (
     <div className="video">
-      <SearchBar setVideoId={setVideoId} />
+      <SearchBar />
       {/* <YouTube videoId={videoId}
                opts={opts}
                onPlay={onPlay} /> */}
