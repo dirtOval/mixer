@@ -15,13 +15,13 @@ const Video = (props) => {
   
   // const [videoId, setVideoId] = useState('H96RoJKqbN4');
 
-  const getAudio = (url) => {
+  const getAudio = async (url) => {
     fetch('http://localhost:6969/audio',)
-    .then(response => {
+    .then(async response => {
       return response.json();
     })
     .then(data => {
-      console.log(data);
+      console.log(data.message);
     })
   }
 
