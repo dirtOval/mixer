@@ -14,19 +14,20 @@ const opts = {
 const Video = (props) => {
   
   // const [videoId, setVideoId] = useState('H96RoJKqbN4');
-  
-  const onPlay = (e) => {
-    // console.log('youtube is ready :)');
-    // console.log(e.target);
-  }
 
   const getAudio = (url) => {
-
+    fetch('http://localhost:6969/audio',)
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      console.log(data);
+    })
   }
 
   return (
     <div className="video">
-      <SearchBar />
+      <SearchBar getAudio={getAudio} />
       {/* <YouTube videoId={videoId}
                opts={opts}
                onPlay={onPlay} /> */}

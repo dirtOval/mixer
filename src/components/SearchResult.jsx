@@ -1,9 +1,9 @@
 import React from 'react';
 
-const SearchResult = ({result, setVideoId, closeModal}) => {
+const SearchResult = ({result, getAudio, closeModal}) => {
 
   const onClick = (e) => {
-    setVideoId(result.id.videoId);
+    getAudio();
     closeModal();
   }
 

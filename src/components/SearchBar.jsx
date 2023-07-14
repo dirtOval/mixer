@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import SearchModal from './SearchModal.jsx';
 
-const SearchBar = ({setVideoId}) => {
+const SearchBar = ({getAudio}) => {
 
   const sample = {
     items: [
@@ -58,7 +58,7 @@ const SearchBar = ({setVideoId}) => {
       <SearchModal modalOpen={modalOpen}
                    closeModal={closeModal}
                    searchResults={searchResults}
-                   setVideoId={setVideoId}/>
+                   getAudio={getAudio} />
     </>
   )
 }

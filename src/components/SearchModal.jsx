@@ -5,7 +5,7 @@ import SearchResult from './SearchResult.jsx';
 const SearchModal = ({modalOpen,
                       closeModal,
                       searchResults,
-                      setVideoId}) => {
+                      getAudio}) => {
 
   const modalStyles = {
     content: {
@@ -28,7 +28,7 @@ const SearchModal = ({modalOpen,
         {searchResults.items.map((result, idx) => (
           <SearchResult result={result}
                         key={idx}
-                        setVideoId={setVideoId}
+                        getAudio={getAudio}
                         closeModal={closeModal} />
         ))})
       </Modal>
