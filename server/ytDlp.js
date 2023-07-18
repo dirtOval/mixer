@@ -4,12 +4,12 @@ const init = async () => {
   let githubReleasesData = await YTDlpWrap.getGithubReleases(1, 5);
   await YTDlpWrap.downloadFromGithub();
   console.log('got YTDlp!');
-  return new YTDlpWrap();
+  return new YTDlpWrap('../yt-dlp.exe');
+};
+
+const getAudio = (id, wrap) => {
+
 }
 
-const getAudio = (id) => {
-}
 
-
-exports.init = init;
 exports.getAudio = getAudio;

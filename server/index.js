@@ -1,17 +1,36 @@
 const express = require('express');
+const YTDlpWrap = require('yt-dlp-wrap').default;
 const app = express();
 const port = 6969;
-// import {init, getAudio} from './ytDlp.js';
-const ytDlp = require('./ytDlp.js');
+// const {ytDlp} = require('./ytDlp.js');
 
-let YTDlp;
 
-app.get('/audio', (req, res) => {
+app.get('/audio', async (req, res) => {
   res.set('Access-Control-Allow-Origin', 'http://localhost:3000');
-  res.json({"message": "beep boop beep heres your audio"});
+  // let data = {
+  //   data: ''
+  // }
+  let githubReleasesData = await YTDlpWrap.getGithubReleases(1, 5);
+  await YTDlpWrap.downloadFromGithub();
+  console.log('got YTDlp!');
+  const ytDlp = await new YTDlpWrap('./yt-dlp.exe');
+  setTimeout(() => {
+    let stream = ytDlp.execStream([
+      'https://www.youtube.com/watch?v=' + 'H96RoJKqbN4',
+      '--extract-audio'
+      // '-f',
+      // "'ba'",
+      // '-x',
+      // '--audio-format',
+      // 'mp3',
+      // '-o',
+      // "'%(id)s.%(ext)s'"
+    ])
+    stream.pipe(res);
+  }, 5000)
+  // console.log(JSON.stringify(ytDlp));
 })
 
 app.listen(port, () => {
-  YTDlp = ytDlp.init();
   console.log('listening! :)');
 });

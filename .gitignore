@@ -24,3 +24,5 @@ yarn-debug.log*
 yarn-error.log*
 
 yt-dlp.exe
+
+a_bad_file_i_dont_want.txt
