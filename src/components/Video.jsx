@@ -18,11 +18,11 @@ const Video = (props) => {
   const getAudio = async (url) => {
     fetch('http://localhost:6969/audio',)
     .then(async response => {
-      return response.json();
+      console.log(response);
     })
-    .then(data => {
-      console.log(data.message);
-    })
+    // .then(data => {
+    //   console.log(data.message);
+    // })
   }
 
   return (
